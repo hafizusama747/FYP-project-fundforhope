@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<title>Flood Guide</title>
+<%- include('./partials/head'); %>
+<style>
+    .card {
+      border:none;
+      padding: 10px 50px;
+    }
+    .card::after {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+      -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .card:hover {
+      transform: scale(1.02, 1.02);
+      -webkit-transform: scale(1.02, 1.02);
+      backface-visibility: hidden; 
+      will-change: transform;
+      box-shadow: 0 1rem 3rem rgba(0,0,0,.75) !important;
+    }
+    .card:hover::after {
+      opacity: 1;
+    }
+    .card:hover .btn-outline-primary{
+      color:white;
+      background:#007bff;
+    }
+  </style>
+</head>
+<body class="container-fluid">
+
+<header>
+  <%- include('./partials/header'); %>
+</header>
+
+<main>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Web Scraping Example</title>
+    </head>
+    <body>
+      <h1>Data Table</h1>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Value 1</th>
+          <th>Value 2</th>
+        </tr>
+        <% rows.forEach((row) => { %>
+        <tr>
+          <td><%= row.name %></td>
+          <td><%= row.value1 %></td>
+          <td><%= row.value2 %></td>
+        </tr>
+        <% }); %>
+      </table>
+    </body>
+  </html>
+   
+</main>
+  
+
+
+<footer>
+  <%- include('./partials/footer'); %>
+</footer>
+
+</body>
+
+
+</html>

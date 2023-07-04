@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Signup</title>
+  <%- include('../partials/head'); %>
+  <!-- Custom styles for this template-->
+  <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+  <style>
+    .carda {
+      border:none;
+      padding: 10px 50px;
+    }
+    .carda::after {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+      -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .carda:hover {
+      transform: scale(1.02, 1.02);
+      -webkit-transform: scale(1.02, 1.02);
+      backface-visibility: hidden; 
+      will-change: transform;
+      box-shadow: 0 1rem 3rem rgba(0,0,0,.75) !important;
+    }
+    .carda:hover::after {
+      opacity: 1;
+    }
+    .carda:hover .btn-outline-primary{
+      color:white;
+      background:#007bff;
+    }
+  </style>
+
+  <script>
+     function showPreview(event){
+    if(event.target.files.length > 0){
+    var src = URL.createObjectURL(event.target.files[0]);
+    var preview = document.getElementById("file-ip-1-preview");
+    preview.src = src;
+    preview.style.display = "block";
+  }
+  
+}
+function showCnicPreview(event){
+    if(event.target.files.length > 0){
+    var src = URL.createObjectURL(event.target.files[0]);
+    var preview = document.getElementById("file-ip-2-preview");
+    preview.src = src;
+    preview.style.display = "block";
+  }  
+}
+  </script>
+</head>
+<body class="container-fluid">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+
+<div class="jumbotron card  mt-1 border-left-secondary" style="margin-left: 35px;margin-right: 35px;">
+    <div class="container ">
+      <% if (country === 'Pakistan') { %>
+        <form class="" action="/users/signup" method="POST" enctype="multipart/form-data">
+          <div class="row text-end" styl>
+  
+              <div class="col-lg-3 col-md-7">
+                  <div class="fs-1">
+                      <br>
+                      پروفائل
+                  </div>
+                  <div>
+                    آپ کی تصویر اور رابطے کی معلومات عوامی طور پر شیئر کی جائیں گی۔
+                  </div>
+              </div>
+             
+              <div class="col-lg-9 col-md-12 col-sm-12 text-end">
+                
+                      <section class="vh-100 " style="background-color: #E9ECEF;border-radius: 35px;">
+                        <div class="container py-5 h-100">
+                          <div class="row d-flex justify-content-center align-items-center h-100">
+                          
+                              <div class="card carda shadow-2-strong border-left-secondary " style="border-radius: 1rem;">
+                                <div class="card-body p-5 text-center">
+                      
+                                  <div class="text-start">تصویر</div>
+  
+                                  <div class="form-outline mb-4">
+                                      <div class="row">
+                                          <div class="col-2 preview">
+                                              <img id="file-ip-1-preview" src="https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png" class="rounded float-start img-fluid img-thumbnail" alt="...">
+                                          </div>
+                                          <div class="col-3">
+                                              <br>
+                                              
+                                              <div class="btn btn-light btn-sm btn-rounded fw-semibold text-dark" style="border-radius:30px">
+                                             
+                                                  <label class="form-label text-dark m-1" for="file-ip-1">اپنی تصویر کا انتخاب کریں۔
+                                                  </label>
+                                                  <input type="file" class="form-control d-none" style="border-radius:30px" id="file-ip-1" name="image" required onchange="showPreview(event);"/>
+                                              </div>
+                                          </div>
+                                      </div>
+  
+                                  </div>
+                                 
+                    
+                                  <div class="form-outline mb-4">
+                                      <div class="row text-start" >
+                                          <div class="col-6">
+                                              <label for="firstname" > پہلا نام
+                                              </label>
+                    
+                                              <input type="text" style="border-radius:30px" class="form-control" placeholder="Enter your first name" id="firstname"name="firstname" required >
+                                          </div>
+                                          <div class="col-6">
+                                              <label for="lastname" > آخری نام
+                                              </label>
+                    
+                                              <input type="text"  class="form-control"style="border-radius:30px" placeholder="Enter your last name" id="lastname" name="lastname" required >
+                                          </div>
+                                      </div>
+                                  </div>
+                             
+                                  <div class="form-outline mb-4 text-start">
+                                    <label for="email" >ای میل اڈریس</label>
+                                    <input type="email"  class="form-control form"style="border-radius:30px" placeholder="example@gmail.com" id="email"name="email" required>
+                                  </div>
+  
+                                  <div class="form-outline mb-4 text-start">
+                                      <label for="contact" >رابطہ نمبر</label>
+                                      <input type="text"  class="form-control form"style="border-radius:30px" placeholder="+92-123-4567891" name="contact" required>
+                                    </div>
+                    
+                                    <div class="form-outline mb-4">
+                                      <div class="row text-start">
+                                          <div class="col-6">
+                                              <label for="password" >پاس ورڈ</label>
+                                              <input type="password"  class="form-control"style="border-radius:30px" placeholder="Password" id="password" name="password" required>
+                                          </div>
+                                          <div class="col-6">
+                                              <label for="cpassword" >پاس ورڈ کی تصدیق کریں۔</label>
+                                              <input type="password"  class="form-control" style="border-radius:30px"placeholder="Re-enter password" name="cpassword" required>
+                                          </div>
+                                      </div>
+                                  </div> 
+                                  <div class="row">
+                                      <div class="col-4 text-left">
+                                          <label for="gender">اپنی جنس کا انتخاب کریں۔</label required>
+                                              <select id="gender" class="form-control" style="border-radius:30px"name="gender">
+                                                <option selected>منتخب کریں۔</option>
+                                                <option selected>مرد</option>
+                                                <option selected>عورت</option>
+                                                <option selected>ٹرانسجینڈر</option>
+                                              </select>
+                                      </div>
+                                  </div>                                                   
+                                </div>
+                              </div>
+                          
+                          </div>
+                        </div>
+                      </section>
+                      
+              </div>
+              <hr class="my-3">
+              <div class="col-lg-3 col-md-7">
+                  <div class="fs-1">
+                      <br>
+                      پتہ
+                  </div>
+                  <div>
+                    ہمیں آپ کی شناخت کی تصدیق کے لیے اس معلومات کی ضرورت ہے، براہ کرم درست معلومات درج کرنا یقینی بنائیں۔
+                  </div>
+              </div>
+              <div class="col-lg-9 col-md-12 col-sm-12">
+                  
+                      <section class="vh-100" style="background-color: #E9ECEF;">
+                        <div class="container py-5 h-100">
+                          <div class="row d-flex justify-content-center align-items-center h-100">
+                          
+                              <div class="card carda shadow-2-strong border-left-secondary" style="border-radius: 1rem;">
+                                <div class="card-body p-5 text-center">
+                      
+                                  <div class="">
+                                      <div class="form-outline mb-4">
+                                          <div class=" text-left">
+                                              <label for="streetaddress" >گلی کا پتہ</label>
+                    
+                                              <input type="text" style="border-radius:30px" class="form-control" placeholder="" name="streetaddress" required >
+                                          </div>
+      
+                                      </div>
+                                  </div>
+                                  <div class="form-outline mb-4 text-left">
+                                      <div class="row">
+                                          <div class="col-lg-3 col-sm-12">
+                                              <label for="city" >شہر</label>
+                                              <input type="text" style="border-radius:30px" class="form-control" placeholder="" name="city" required >                                        
+                                          </div>
+                                          <div class="col-lg-3 col-sm-12">                                  
+                                                  <label for="state" >ریاست/صوبہ</label>
+                                                  <select style="border-radius:30px" id="state" class="form-control" name="state" required>
+                                                      <option selected>منتخب کریں</option>
+                                                      <option>پنجاب</option>
+                                                      <option>سندھ</option>
+                                                      <option>بلوچستان</option>
+                                                      <option>خیبر پختونخواہ</option>
+                                                      </select>
+                                                  </select>
+                                          </div>
+                                          
+                                          <div class="col-lg-3 col-sm-12">                                  
+                                              <label for="zip" >زپ / پوسٹل کوڈ</label>
+                                              <input type="text" style="border-radius:30px" class="form-control" placeholder="" name="zip" required >
+                                          </div>
+  
+                                          <div class="col-lg-3 col-sm-12">
+                                              <label for="country">ملک</label required>
+                                                  <select id="country" class="form-control"style="border-radius:30px" name="country" required>
+                                                    <option selected>پاکستان</option>
+                                                  </select>
+                                          </div>
+                                      </div>
+                                  </div>                              
+                                  <div>
+                                      <label for="cnicimage" class="form-label text-left">اپنے قومی شناختی کارڈ کی تصویر اپ لوڈ کریں۔</label>
+                                  </div>
+                       
+                                  <img  id="file-ip-2-preview"src="https://www.slntechnologies.com/wp-content/uploads/2017/08/ef3-placeholder-image.jpg" style="max-height: 200px;border-radius:30px" class="img-fluid" alt="...">
+                              
+                                  <div class="mb-3">
+                                      <label for="cnicimage" class="form-label"></label>
+                                      <input  class="form-control form-control-sm"style="border-radius:30px" id="file" type="file" name="cnicimage" required onchange="showCnicPreview(event);">
+                                  </div>
+                          
+                                  <button class="btn btn-block btn-outline-dark" style="border-radius:30px" type="submit">رجسٹر کریں۔</button>
+                    
+                                </div>
+                              </div>
+                          
+                          </div>
+                        </div>                     
+                      </section>
+                 
+              </div>
+          </div> 
+          </form> 
+      <% } else { %>
+        <form action="/users/signup" method="POST" enctype="multipart/form-data">
+          <div class="row ">
+  
+              <div class="col-lg-3 col-md-7">
+                  <div class="fs-1">
+                      <br>
+                      Profile
+                  </div>
+                  <div>
+                      Your picture and contact information will be shared publicly.
+                  </div>
+              </div>
+             
+              <div class="col-lg-9 col-md-12 col-sm-12">
+                
+                      <section class="vh-100 " style="background-color: #E9ECEF;border-radius: 35px;">
+                        <div class="container py-5 h-100">
+                          <div class="row d-flex justify-content-center align-items-center h-100">
+                          
+                              <div class="card carda shadow-2-strong border-left-secondary " style="border-radius: 1rem;">
+                                <div class="card-body p-5 text-center">
+                      
+                                  <div class="text-start">Photo</div>
+  
+                                  <div class="form-outline mb-4">
+                                      <div class="row">
+                                          <div class="col-2 preview">
+                                              <img id="file-ip-1-preview" src="https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png" class="rounded float-start img-fluid img-thumbnail" alt="...">
+                                          </div>
+                                          <div class="col-3">
+                                              <br>
+                                              
+                                              <div class="btn btn-light btn-sm btn-rounded fw-semibold text-dark" style="border-radius:30px">
+                                             
+                                                  <label class="form-label text-dark m-1" for="file-ip-1">Choose your Image</label>
+                                                  <input type="file" class="form-control d-none" style="border-radius:30px" id="file-ip-1" name="image" required onchange="showPreview(event);"/>
+                                              </div>
+                                          </div>
+                                      </div>
+  
+                                  </div>
+                                 
+                    
+                                  <div class="form-outline mb-4">
+                                      <div class="row text-start" >
+                                          <div class="col-6">
+                                              <label for="firstname" > First name</label>
+                    
+                                              <input type="text" style="border-radius:30px" class="form-control" placeholder="Enter your first name" id="firstname"name="firstname" required >
+                                          </div>
+                                          <div class="col-6">
+                                              <label for="lastname" > Last Name</label>
+                    
+                                              <input type="text"  class="form-control"style="border-radius:30px" placeholder="Enter your last name" id="lastname" name="lastname" required >
+                                          </div>
+                                      </div>
+                                  </div>
+                             
+                                  <div class="form-outline mb-4 text-start">
+                                    <label for="email" >Email Address</label>
+                                    <input type="email"  class="form-control form"style="border-radius:30px" placeholder="example@gmail.com" id="email"name="email" required>
+                                  </div>
+  
+                                  <div class="form-outline mb-4 text-start">
+                                      <label for="contact" >Contact Number</label>
+                                      <input type="text"  class="form-control form"style="border-radius:30px" placeholder="+92-123-4567891" name="contact" required>
+                                    </div>
+                    
+                                    <div class="form-outline mb-4">
+                                      <div class="row text-start">
+                                          <div class="col-6">
+                                              <label for="password" >Password</label>
+                                              <input type="password"  class="form-control"style="border-radius:30px" placeholder="Password" id="password" name="password" required>
+                                          </div>
+                                          <div class="col-6">
+                                              <label for="cpassword" >Confirm Password</label>
+                                              <input type="password"  class="form-control" style="border-radius:30px"placeholder="Re-enter password" name="cpassword" required>
+                                          </div>
+                                      </div>
+                                  </div> 
+                                  <div class="row">
+                                      <div class="col-4 text-left">
+                                          <label for="gender">Choose your gender</label required>
+                                              <select id="gender" class="form-control" style="border-radius:30px"name="gender">
+                                                <option selected>Select</option>
+                                                <option selected>Male</option>
+                                                <option selected>Female</option>
+                                                <option selected>Other</option>
+                                              </select>
+                                      </div>
+                                  </div>                                                   
+                                </div>
+                              </div>
+                          
+                          </div>
+                        </div>
+                      </section>
+                      
+              </div>
+              <hr class="my-3">
+              <div class="col-lg-3 col-md-7">
+                  <div class="fs-1">
+                      <br>
+                      Address
+                  </div>
+                  <div>
+                      We need this information to verify your identity please make sure to enter the correct information.
+                  </div>
+              </div>
+              <div class="col-lg-9 col-md-12 col-sm-12">
+                  
+                      <section class="vh-100" style="background-color: #E9ECEF;">
+                        <div class="container py-5 h-100">
+                          <div class="row d-flex justify-content-center align-items-center h-100">
+                          
+                              <div class="card carda shadow-2-strong border-left-secondary" style="border-radius: 1rem;">
+                                <div class="card-body p-5 text-center">
+                      
+                                  <div class="">
+                                      <div class="form-outline mb-4">
+                                          <div class=" text-left">
+                                              <label for="streetaddress" >Street address</label>
+                    
+                                              <input type="text" style="border-radius:30px" class="form-control" placeholder="" name="streetaddress" required >
+                                          </div>
+      
+                                      </div>
+                                  </div>
+                                  <div class="form-outline mb-4 text-left">
+                                      <div class="row">
+                                          <div class="col-lg-3 col-sm-12">
+                                              <label for="city" >City</label>
+                                              <input type="text" style="border-radius:30px" class="form-control" placeholder="" name="city" required >                                        
+                                          </div>
+                                          <div class="col-lg-3 col-sm-12">                                  
+                                                  <label for="state" >State/Province</label>
+                                                  <select style="border-radius:30px" id="state" class="form-control" name="state" required>
+                                                      <option selected>Select</option>
+                                                      <option>Punjab</option>
+                                                      <option>Sindh</option>
+                                                      <option>Balochistan</option>
+                                                      <option>Khyber Pakhtunkhwa</option>
+                                                      </select>
+                                                  </select>
+                                          </div>
+                                          
+                                          <div class="col-lg-3 col-sm-12">                                  
+                                              <label for="zip" >ZIP/Postal code</label>
+                                              <input type="text" style="border-radius:30px" class="form-control" placeholder="" name="zip" required >
+                                          </div>
+  
+                                          <div class="col-lg-3 col-sm-12">
+                                              <label for="country">Country</label required>
+                                                  <select id="country" class="form-control"style="border-radius:30px" name="country" required>
+                                                    <option selected>Pakistan</option>
+                                                  </select>
+                                          </div>
+                                      </div>
+                                  </div>                              
+                                  <div>
+                                      <label for="cnicimage" class="form-label text-left">Upload an image of your CNIC</label>
+                                  </div>
+                       
+                                  <img  id="file-ip-2-preview"src="https://www.slntechnologies.com/wp-content/uploads/2017/08/ef3-placeholder-image.jpg" style="max-height: 200px;border-radius:30px" class="img-fluid" alt="...">
+                              
+                                  <div class="mb-3">
+                                      <label for="cnicimage" class="form-label"></label>
+                                      <input  class="form-control form-control-sm"style="border-radius:30px" id="file" type="file" name="cnicimage" required onchange="showCnicPreview(event);">
+                                  </div>
+                          
+                                  <button class="btn btn-block btn-outline-dark" style="border-radius:30px" type="submit">Register</button>
+                    
+                                </div>
+                              </div>
+                          
+                          </div>
+                        </div>                     
+                      </section>
+                 
+              </div>
+          </div> 
+          </form> 
+      <% } %>
+                    
+    </div>
+    
+    
+</div>
+<footer>
+
+</footer>
+
+</body>
+</html>

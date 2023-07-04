@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  <title>Login</title>
+  
+  <%- include('../partials/head'); %>
+
+  <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+  <style>
+    .carda {
+      border:none;
+      padding: 10px 50px;
+    }
+    .carda::after {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+      -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .carda:hover {
+      transform: scale(1.02, 1.02);
+      -webkit-transform: scale(1.02, 1.02);
+      backface-visibility: hidden; 
+      will-change: transform;
+      box-shadow: 0 1rem 3rem rgba(0,0,0,.75) !important;
+    }
+    .carda:hover::after {
+      opacity: 1;
+    }
+    .carda:hover .btn-outline-primary{
+      color:white;
+      background:#007bff;
+    }
+  </style>
+
+<script>
+  function showPreview1(event){
+ if(event.target.files.length > 0){
+ var src = URL.createObjectURL(event.target.files[0]);
+ var preview = document.getElementById("file-ip-1-preview");
+ preview.src = src;
+ preview.style.display = "block";
+ preview.hidden=false;
+
+}
+
+}
+</script>
+  
+  </head>
+<body class="container-fluid">
+
+<header>
+  <%- include('../partials/header'); %>
+  
+</header>
+
+<form action="/donationposts/create" method="POST" enctype="multipart/form-data">
+<section class=" card vh-100 " style="background-color: #E9ECEF; margin-left: 35px;margin-right: 35px;">
+  <div class="container mt-5">
+    
+    <div class="row">
+      <div class="col-lg-12 col-md-9">
+        <div class="card carda">
+          
+          <div class="card-body text-secondary">
+            <h3 class="mb-4">Create donation request</h3>
+            <form>
+              <div class="form-group">
+              
+                <input type="text" class="form-control" id="title" name="title" required placeholder="Title of request">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" rows="5" placeholder="Share your story"required name="description"></textarea>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-4">
+              
+                    <input type="text" class="form-control" id="title" name="method"required placeholder="Enter the donation method">
+                  </div>
+                  <div class="form-group col-4">
+                  
+                    <input type="text" class="form-control" id="title" name="details"required placeholder="Account number / name">
+                  </div> <div class="form-group col-4">
+                  
+                    <input type="text" class="form-control" id="title" name="contact" required placeholder="Contact details">
+                  </div>
+              </div>
+
+           
+
+              <div>
+                <label for="cnicimage" class="form-label text-left">Share image if any</label>
+              </div>
+              <div class="row">
+           
+   
+                <div class="col-lg-4">
+                <img  id="file-ip-1-preview"src="https://www.slntechnologies.com/wp-content/uploads/2017/08/ef3-placeholder-image.jpg" style="max-height: 200px;border-radius:30px" class="img-fluid" alt="..."hidden>
+                <div class="mb-3">
+                  <label for="cnicimage" class="form-label"></label>
+                </div>
+                </div>
+
+               
+              
+              </div>
+              <input  class="form-control form-control-sm" id="image1" type="file" name="image1" onchange="showPreview1(event);">
+
+              
+
+
+              <div class="text-center mt-3">
+                <button class="btn btn-md btn-outline-secondary "  type="Submit post">Submit post</button>
+              </div>
+            
+       
+            </form>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+    
+  </div>
+
+
+</section>
+</form>
+
+
+<footer>
+</footer>
+
+</body>
+</html>

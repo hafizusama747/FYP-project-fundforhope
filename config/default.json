@@ -1,0 +1,5 @@
+{
+    "db":"",
+    "jwtprivatekey":"SomePrivateKey1",
+    "STRIPE_SECRET_KEY": "sk_test_51N3EIrIGkN2Os2v5yS6hvTzefsc4i1QhStHpcx7VaYKl2po0B0OKwh97YEPuUZMT17GcqbPwrVg12PXWHMs2X0ip00AvJaw09Y"
+}

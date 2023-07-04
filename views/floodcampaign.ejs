@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<title><%=title%></title>
+<%- include('./partials/head'); %>
+ <!-- CSS (load bootstrap from a CDN) -->
+ <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+ <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+ <!-- Style CSS -->
+ <link href="/stylesheets/style.css" rel="stylesheet" type="text/css">
+     <!-- Custom fonts for this template-->
+     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+     <link
+         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"rel="stylesheet">
+ 
+     <!-- Custom styles for this template-->
+     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+ 
+     
+ 
+   <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+<style>
+  .customcard {
+    border:none;
+    padding: 10px 50px;
+  }
+  .customcard::after {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  .customcard:hover {
+    transform: scale(1.02, 1.02);
+    -webkit-transform: scale(1.02, 1.02);
+    backface-visibility: hidden; 
+    will-change: transform;
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.75) !important;
+  }
+  .customcard:hover::after {
+    opacity: 1;
+  }
+  .customcard:hover .btn-outline-primary{
+    color:white;
+    background:#007bff;
+  }
+  .full-size-bg {
+    background-image: url('/images/o4.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+  }
+
+  .text-bottom-left {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+
+</style>
+</head>
+<body class="container-fluid">
+
+<header>
+  <%- include('./partials/header'); %>
+
+</header>
+
+
+<main>
+  
+<div class="jumbotron">
+    
+  <section class="full-size-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="text-bottom-left text-light">
+            <h2>FLOODING IN PAKISTAN</h2>
+            <p>FAMILIES NEED YOUR SUPPORT</p>
+            <a href="/flooddonation" class="btn btn-light">Donate Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+    <div class="card ">
+      <br>
+      <div class="content d-flex align-items-center justify-content-center">
+        
+      </div>
+      <div class="container-fluid ">
+      
+        <div class="card-body">
+          <b   class="content d-flex align-items-center justify-content-center" ><i class="fa fa-clipboard text-dark" aria-hidden="true"><nbsp></nbsp> <b class="fs-5 text-dark">Appeal </b> </i>  </b> 
+          <h1 class="content d-flex align-items-center justify-content-center text-dark" >Devastating floods in Pakistan</h1><h1 class="text-success"></h1>
+          <p class="title content d-flex align-items-center justify-content-center text-dark">We are on the ground working for the needy children and families</p>
+          
+          <div class="actions ">
+            <div class="d-flex justify-content-center">
+              <a href="/flooddonation"> <button type="button" style="border-radius:30px"class="btn  btn-outline-success btn-sm px-3 me-2 fw-semibold" >
+                Donate now
+              </button></a>
+                           
+            </div>
+            <br>
+          </div>  
+        </div>
+        <br>
+      </div>                                  
+    </div>     
+    
+    <div class="card ">
+      <br>
+      <div class="content d-flex align-items-center justify-content-center">
+        <div class="row">
+
+          <div class="col-lg-12 col-md-12 col-sm-12 fs-5">
+              <blockquote><i class="icofont-quote-left"></i> According to the data from the National Disaster Management Authority              <a href="http://cms.ndma.gov.pk/">(NDMA)</a>
+                , <b class="count text-danger">33</b> million population of <b class="count text-danger">81</b> districts have been affected. <i class="icofont-quote-right"></i></blockquote>
+
+          </div>
+
+      </div>
+      </div>
+      <div class="container-fluid ">
+      
+        <div class="card card-body">
+          <div class="row"> 
+            <div class="col-lg-2 col-md-2 col-sm-12">
+                <div class="p-3">
+                    <img src="/images/deaths v1.jpeg" style="width: 70%;height: 70%;" alt="Total Deaths">
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12">
+                <div>
+                    <strong class="text-danger count" style="font-size:40px;"><%=died%></strong>
+                    <h5>Deaths</h5>
+                </div>
+            </div>
+            
+            <div class="col-lg-2 col-md-2 col-sm-12">
+                <div class="p-3">
+                    <img src="/images/injured v1.jpeg" style="width: 70%;height: 70%;" alt="Total Injured">
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12">
+               
+                    <strong class="text-danger count" style="font-size:40px;"><%=injured%></strong>
+                    <h5>Injured</h5>
+              
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12">
+                <div class="p-3">
+                    <img src="/images/live stokc lost v1.jpeg" style="width: 70%;height: 70%;" alt="Total Livestock Lost">
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12">
+                
+                    <strong class="text-danger count" style="font-size:40px;"><%=liveStockLoses%></strong>
+                    <h5>Livestock Lost</h5>
+               
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-12">
+                <div class="p-3">
+                    <img src="/images/houses damaged v1.jpeg" style="width: 70%;height: 70%;" alt="Total Fully Damaged">
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12">
+               
+                    <strong class="text-danger count" style="font-size:40px;">897,014</strong>
+                    <h5>Fully Damaged</h5>
+              
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12">
+                <div class="p-3">
+                    <img src="/images/house v1.jpeg" style="width: 70%;height: 70%;" alt="Total Partially Damaged">
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12">
+                
+                    <strong class="text-danger count" style="font-size:40px;">1,391,467</strong>
+                    <h5>Partially Damaged</h5>
+                
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12">
+                <div class="p-3">
+                    <img src="/images/houses damaged v1.jpeg " style="width: 70%;height: 70%;" alt="Total Houses Damaged">
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12">
+                
+                    <strong class="text-danger count" style="font-size:40px;">2,288,481</strong>
+                    <h5>Total Houses Damaged</h5>
+               
+            </div>
+          </div>
+          <div class="card text-center">
+            
+            <div class="card-body ">
+              <hr class="my-4">
+              <h4 class="card-title text-dark">In emergencies, children suffer first, and most.</h4>
+              <hr class="my-4">
+              <p class="card-text">When a sudden onset emergency such as an earthquake or hurricane strikes, it's children who suffer first and suffer most. As well as the immediate, devastating impacts – loss of life, destruction of homes and communities – the chaos of an emergency can threaten access to food, shelter and social support. Children and mothers are often cut off from basic and essential care, including life-saving medicines and supplies. The risk of malnutrition soars. Shattered infrastructure means families can lose access to adequate sanitation and hygiene facilities, leaving children even more susceptible to waterborne diseases. The destruction of schools means children can lose safety and routine. Without access to education, they risk losing their futures.</p>
+              
+             
+             
+            </div>
+          
+          </div>
+            <br>
+          </div>  
+        </div>
+        <br>
+    </div>
+    
+    <div class="card text-center">
+    
+      <div class="card-body ">
+    
+        <div class="card-header text-dark">
+          Current Situation
+        </div>
+        <div class="container">
+          <div class="row mt-2 mb-2">
+            <div class="col-md-6">
+              <img src="/images/Pakistan-floods-map_h2.jpg" alt="Image" class="img-fluid" >
+            </div>
+            <div class="col-md-6">
+              <div class="table-container" style="max-height: 400px; overflow-y: auto;">
+                <table class="table table-light text-center align-middle" id="table">
+                  <tbody>
+  
+                          <tr>
+  <td class="name">Tarbela <span style="display: block; color: black; font-size: 12px">(Indus)</span></td>
+  
+                          <td>33,700
+  
+                                          <span class="material-icons d-block">trending_up</span>
+  
+  </td>
+  <td>50,000
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+          <tr>
+  <td class="name">Kalabagh <span style="display: block; color: black; font-size: 12px">(Indus)</span></td>
+  
+                          <td>66,343
+  
+                                          <span class="material-icons d-block">trending_up</span>
+  
+  </td>
+  <td>61,343
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+          <tr>
+  <td class="name">Chashma <span style="display: block; color: black; font-size: 12px">(Indus)</span></td>
+  
+                          <td>71,993
+  
+                                          <span class="material-icons d-block">trending_down</span>
+  
+  </td>
+  <td>69,793
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+          <tr>
+  <td class="name">Taunsa <span style="display: block; color: black; font-size: 12px">(Indus)</span></td>
+  
+                          <td>70,945
+  
+                                          <span class="material-icons d-block">trending_down</span>
+  
+  </td>
+  <td>62,219
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+          <tr>
+  <td class="name">Guddu <span style="display: block; color: black; font-size: 12px">(Indus)</span></td>
+  
+                          <td>47,549
+  
+                                          <span class="material-icons d-block">trending_up</span>
+  
+  </td>
+  <td>44,034
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+          <tr>
+  <td class="name">Sukkur <span style="display: block; color: black; font-size: 12px">(Indus)</span></td>
+  
+                          <td>42,020
+  
+                                          <span class="material-icons d-block">trending_flat</span>
+  
+  </td>
+  <td>13,410
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+          <tr>
+  <td class="name">Kotri <span style="display: block; color: black; font-size: 12px">(Indus)</span></td>
+  
+                          <td>6,590
+  
+                                          <span class="material-icons d-block">trending_flat</span>
+  
+  </td>
+  <td>0
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+  
+                          <tr>
+  <td class="name">Nowshera <span style="display: block; color: black; font-size: 12px">(Kabul)</span></td>
+  
+  
+  
+  <td>
+                                          <span> 29,900 </span>
+                                                  <span class="material-icons d-block">trending_up</span>
+                                                                          </td>
+  <td>
+                                          <span> 29,900 </span>
+  
+  
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+  
+                          <tr>
+  <td class="name">Mangla <span style="display: block; color: black; font-size: 12px">(Jhelum)</span></td>
+  
+                          <td>42,623
+  
+                                          <span class="material-icons d-block">trending_up</span>
+  
+  </td>
+  <td>50,000
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+          <tr>
+  <td class="name">Rasul <span style="display: block; color: black; font-size: 12px">(Jhelum)</span></td>
+  
+                          <td>37,355
+  
+                                          <span class="material-icons d-block">trending_down</span>
+  
+  </td>
+  <td>19,705
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+  
+                          <tr>
+  <td class="name">Marala <span style="display: block; color: black; font-size: 12px">(Chenab)</span></td>
+  
+                          <td>22,897
+  
+                                          <span class="material-icons d-block">trending_flat</span>
+  
+  </td>
+  <td>13,697
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+          <tr>
+  <td class="name">Khanki <span style="display: block; color: black; font-size: 12px">(Chenab)</span></td>
+  
+                          <td>13,293
+  
+                                          <span class="material-icons d-block">trending_down</span>
+  
+  </td>
+  <td>7,284
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+          <tr>
+  <td class="name">Q.Abad <span style="display: block; color: black; font-size: 12px">(Chenab)</span></td>
+  
+                          <td>29,964
+  
+                                          <span class="material-icons d-block">trending_down</span>
+  
+  </td>
+  <td>7,964
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+          <tr>
+  <td class="name">Trimmu <span style="display: block; color: black; font-size: 12px">(Chenab)</span></td>
+  
+                          <td>24,325
+  
+                                          <span class="material-icons d-block">trending_down</span>
+  
+  </td>
+  <td>11,043
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+          <tr>
+  <td class="name">Panjnad <span style="display: block; color: black; font-size: 12px">(Chenab)</span></td>
+  
+                          <td>10,260
+  
+                                          <span class="material-icons d-block">trending_down</span>
+  
+  </td>
+  <td>0
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+  
+                          <tr>
+  <td class="name">Jassar <span style="display: block; color: black; font-size: 12px">(Ravi)</span></td>
+  
+  
+  
+  <td>
+                                          <span> 2,035 </span>
+                                                  <span class="material-icons d-block">trending_flat</span>
+                                                                          </td>
+  <td>
+                                          <span> 2,035 </span>
+  
+  
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+          <tr>
+  <td class="name">Shahdara <span style="display: block; color: black; font-size: 12px">(Ravi)</span></td>
+  
+  
+  
+  <td>
+                                          <span> 821 </span>
+                                                  <span class="material-icons d-block">trending_flat</span>
+                                                                          </td>
+  <td>
+                                          <span> 821 </span>
+  
+  
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+          <tr>
+  <td class="name">Balloki <span style="display: block; color: black; font-size: 12px">(Ravi)</span></td>
+  
+                          <td>21,655
+  
+                                          <span class="material-icons d-block">trending_flat</span>
+  
+  </td>
+  <td>1,155
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+          <tr>
+  <td class="name">Sidhnai <span style="display: block; color: black; font-size: 12px">(Ravi)</span></td>
+  
+                          <td>11,500
+  
+                                          <span class="material-icons d-block">trending_down</span>
+  
+  </td>
+  <td>0
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+  
+                          <tr>
+  <td class="name">GS Wala <span style="display: block; color: black; font-size: 12px">(Sutlej)</span></td>
+  
+                          <td colspan="2" class="not-received">
+  Not Received
+  </td>
+                  </tr>
+  
+  
+  
+          <tr>
+  <td class="name">Sulemanki <span style="display: block; color: black; font-size: 12px">(Sutlej)</span></td>
+  
+                          <td>9,000
+  
+                                          <span class="material-icons d-block">trending_down</span>
+  
+  </td>
+  <td>0
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+          <tr>
+  <td class="name">Islam <span style="display: block; color: black; font-size: 12px">(Sutlej)</span></td>
+  
+                          <td>0
+  
+                                          <span class="material-icons d-block">trending_flat</span>
+  
+  </td>
+  <td>0
+  
+      <span class="badge d-block  bg-primary   d-print-none">NORMAL</span>
+  
+                                  </td>
+                  </tr>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+                  <p mt-2>
+                          Data captured from space by Copernicus Sentinel-1 on 30 August by the  <a href="https://www.esa.int/ESA_Multimedia/Images/2022/09/Pakistan_inundated">European Space Agency</a> showing the flooding in Pakistan. The left image is a wide view of the affected area. The right image zooms into the area between Dera Murad Jamali and Larkana. The blue to black colours show submerged areas.
+                          The right table shows the present situation of the river flows taken from <a href="https://www.ffd.pmd.gov.pk/cmlcd">NDMA</a>
+                  </p>
+          </div>
+        </div>
+        <div class="card-header text-dark">
+          Flood news
+        </div>
+        <div class="row ml-3 mt-4 ">
+
+
+          <% posts.forEach(function(post) { %>
+            <div class="col-lg-3">
+              <div class="col-lg-3 col-sm-12 mt-4 mb-sm-4">
+                <div class="card img-hover-zoom--quick-zoom " style="width: 18rem;">
+                  <img src="/uploads/blogimages/<%=post.image1%>" class="card-img-top " alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title text-dark"><%=post.title.substring(0,55) + "..."%></h5>
+                    <p class="card-text"><%=post.description.substring(0,85) + "..."%></p>
+                    <a href="/posts/viewnewspost/<%= post._id%>"> <button type="button" style="border-radius:30px"class="btn  btn-outline-secondary btn-sm px-3 me-2 fw-semibold" >
+                      Read news
+                    </button></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+         
+           
+          <% }); %>
+          
+          
+          
+ 
+        </div>
+        <br>
+        <a href="/posts/floodnews"> <button type="button" style="border-radius:30px"class="btn btn-secondary btn-sm px-3 me-2 fw-semibold" >
+          Browse more
+        </button></a>
+       
+      </div>
+      <div class="card-footer text-muted">
+        2 days ago
+      </div>
+
+      
+    </div>
+    
+    
+   
+</div>
+
+
+    
+
+ 
+</main>
+
+<footer>
+  <%- include('./partials/footer'); %>
+</footer>
+
+</body>
+
+
+</html>

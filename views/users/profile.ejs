@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  <title>Login</title>
+  
+  <%- include('../partials/head'); %>
+  <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+  <style>
+    .card {
+      border:none;
+      padding: 10px 50px;
+    }
+    .card::after {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+      -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .card:hover {
+      transform: scale(1.02, 1.02);
+      -webkit-transform: scale(1.02, 1.02);
+      backface-visibility: hidden; 
+      will-change: transform;
+      box-shadow: 0 1rem 3rem rgba(0,0,0,.75) !important;
+    }
+    .card:hover::after {
+      opacity: 1;
+    }
+    .card:hover .btn-outline-primary{
+      color:white;
+      background:#007bff;
+    }
+  </style>
+
+<script>
+  function showPreview(event){
+ if(event.target.files.length > 0){
+ var src = URL.createObjectURL(event.target.files[0]);
+ var preview = document.getElementById("file-ip-1-preview");
+ preview.src = src;
+ preview.style.display = "block";
+}
+
+}
+
+</script>
+  
+  </head>
+<body class="container-fluid">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+<div class="container-fluid jumbotron">
+  <div class="container rounded bg-white mt-1 mb-2 card">
+    <form action="/users/profile/change" method="POST" enctype="multipart/form-data">
+      <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img id="file-ip-1-preview" class="rounded-circle mt-5 " width="150px" src="/uploads/images/<%=user.profileImg%>">
+             </div>
+              <div class="text-nowrap mt-0"><%= user.firstname%> <%= user.lastname%></div>
+                    <div class="small text-medium-emphasis text-nowrap"><%= user.email%></div>
+                    <span class="small text-medium-emphasis text-nowrap"><%= user.gender%> | <%= user.type%></span>
+
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">First name</label><input type="text" class="form-control" placeholder="<%=user.firstname%>" value="<%=user.firstname%>" id="firstname"name="firstname"></div>
+                    <div class="col-md-6"><label class="labels">Last name</label><input type="text" class="form-control" value="<%=user.lastname%>" placeholder="<%=user.lastname%>" id="lastname" name="lastname"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Contact Number</label><input type="text" class="form-control" placeholder="<%=user.contact%>" value="<%=user.contact%>" name="contact"></div>
+                    <div class="col-md-12 mt-2"><label class="labels">Email</label><input type="text" class="form-control" placeholder="<%=user.email%>" value="<%=user.email%>" id="email"name="email"></div>
+               
+                    <div class="col-md-12 mt-2"><label class="labels">Old Password</label><input type="password" class="form-control" placeholder="Enter old password" value=""id="opassword" name="opassword"></div>
+                    <div class="col-md-12 mt-2"><label class="labels">New password</label><input type="Password" class="form-control" placeholder="Enter new password" value="" id="password" name="password"></div>
+                    <div class="col-md-12 mt-2"><label class="labels">Confirm password</label><input type="Password" class="form-control" placeholder="Re enter new password" value="" id="cpassword" name="cpassword"></div>
+
+                </div>
+             
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+          
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center experience"><span class="fs-5">Address</span><span class="border px-3 p-1 add-experience">
+                  
+                  <label class="form-label text-dark m-1" for="file-ip-1"><i class="fa fa-plus text-secondary text-sm" aria-hidden="true"></i> Choose new Image</label>
+                  <input type="file" class="form-control d-none" style="border-radius:30px" id="file-ip-1" name="image" required onchange="showPreview(event);"/>                </i>&nbsp;</span></div><br>
+                    <div class="col-md-12"><label class="labels">Street</label><input type="text" class="form-control" placeholder="<%=user.address.street%>" value="<%=user.address.street%>" name="streetaddress"></div>
+                    <div class="col-lg-6"><label class="labels mt-3">City</label><input type="text" class="form-control" placeholder="<%=user.address.city%>" value="<%=user.address.city%>" id="city"name="city"></div>
+                    <div class="col-lg-6"><label class="labels mt-3">Zip Code</label><input type="text" class="form-control" placeholder="<%=user.address.zipcode%>" value="<%=user.address.zipcode%>" id="zip"name="zip"></div>
+
+                <div class="row mt-3">
+                  <div class="col-md-6"><label class="labels">Country</label><select id="country" class="form-control"style="" name="country" required>
+                    <option selected>Pakistan</option>
+                  </select></div>
+                  <div class="col-md-6"><label class="labels">State/Region</label><select  id="state" class="form-control" name="state" required>
+                    <option selected><%=user.address.state%></option>
+                    <option>Punjab</option>
+                    <option>Sindh</option>
+                    <option>Balochistan</option>
+                    <option>Khyber Pakhtunkhwa</option>
+                    </select>
+                </select>
+              </div>
+              </div>
+
+            </div>
+        </div>
+    </div>
+    </form>
+ 
+  </div>
+</div>
+
+
+
+
+<footer>
+</footer>
+
+</body>
+</html>

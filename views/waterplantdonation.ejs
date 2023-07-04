@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<title><%=title%></title>
+<%- include('./partials/head'); %>
+<style>
+    .card {
+      border:none;
+      padding: 10px 50px;
+    }
+    .card::after {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+      -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .card:hover {
+      transform: scale(1.02, 1.02);
+      -webkit-transform: scale(1.02, 1.02);
+      backface-visibility: hidden; 
+      will-change: transform;
+      box-shadow: 0 1rem 3rem rgba(0,0,0,.75) !important;
+    }
+    .card:hover::after {
+      opacity: 1;
+    }
+    .card:hover .btn-outline-primary{
+      color:white;
+      background:#007bff;
+    }
+    .input-group-prepend {
+    margin-right: -75px; /* Adjust this value as needed */
+    }
+  </style>
+</head>
+<body class="container-fluid">
+
+<header>
+  <%- include('./partials/header'); %>
+</header>
+
+<main>
+  <div class="jumbotron">
+    <div class="container-fluid">
+      <div class="container p-5">
+        <div class="row">
+          <div class="col-lg-4 col-md-12 mb-4">
+            <div class="card h-100 shadow-lg">
+              <div class="card-body">
+                <div class="text-center p-3">
+                  <h5 class="card-title">Animal Welfare</h5>
+                  <small>Protect Wildlife</small>
+                  <br><br>
+                  <span class="h2">$20</span>/Donation
+                  <br><br>
+                </div>
+                <p class="card-text">Your donation will help protect endangered species and support conservation efforts in their natural habitats.</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check text-success" viewBox="0 0 16 16">
+                  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                </svg>Protect wildlife</li>
+                <li class="list-group-item text-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check text-success" viewBox="0 0 16 16">
+                  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                </svg>Support conservation efforts</li>
+                <li class="list-group-item text-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check text-success" viewBox="0 0 16 16">
+                  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                </svg>Make a difference for wildlife</li>
+              </ul>
+              <div class="card-body text-center">
+                <a href="/donation/payment/20"><button class="btn btn-block btn-outline-success" style="border-radius:30px">Donate</button></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12 mb-4">
+            <div class="card h-100 shadow-lg">
+              <div class="card-body">
+                <div class="text-center p-3">
+                  <h5 class="card-title">Community Development</h5>
+                  <small>Empower Local Communities</small>
+                  <br><br>
+                  <span class="h2">$30</span>/Donation
+                  <br><br>
+                </div>
+                <p class="card-text">Your donation will support community development initiatives, such as providing access to clean water, healthcare, and education for underprivileged communities.</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check text-success" viewBox="0 0 16 16">
+                  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                </svg>Empower local communities</li>
+                <li class="list-group-item text-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check text-success" viewBox="0 0 16 16">
+                  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                </svg>Provide access to basic necessities</li>
+                <li class="list-group-item text-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check text-success" viewBox="0 0 16 16">
+                  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                </svg>Make a positive impact on communities</li>
+              </ul>
+              <div class="card-body text-center">
+                <a href="/donation/payment/30"><button class="btn btn-block btn-outline-success" style="border-radius:30px">Donate</button></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12 mb-4">
+            <div class="card h-100 shadow-lg">
+              <div class="card-body">
+                <div class="text-center p-3">
+                  <h5 class="card-title">Environmental Conservation</h5>
+                  <small>Protect the Planet</small>
+                  <br><br>
+                  <span class="h2">$40</span>/Donation
+                  <br><br>
+                </div>
+                <p class="card-text">Your donation will contribute to environmental conservation efforts, including reforestation, promoting sustainable practices, and fighting climate change.</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check text-success" viewBox="0 0 16 16">
+                  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                </svg>Protect the planet</li>
+                <li class="list-group-item text-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check text-success" viewBox="0 0 16 16">
+                  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                </svg>Promote sustainable practices</li>
+                <li class="list-group-item text-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check text-success" viewBox="0 0 16 16">
+                  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                </svg>Fight against climate change</li>
+              </ul>
+              <div class="card-body text-center">
+                <a href="/donation/payment/40"><button class="btn btn-block btn-outline-success" style="border-radius:30px">Donate</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center mt-5">
+          <div class="col-lg-6">
+            <div class="card h-100 shadow-lg">
+              <div class="card-body">
+                <div class="text-center p-3">
+                  <h5 class="card-title">Custom Donation</h5>
+                  <br>
+                  <span class="h2">Enter Amount in USD</span>
+                  <br><br>
+                </div>
+                <p class="card-text text-center">Make a custom donation of any amount to support the flood victims</p>
+              </div>
+              <div class="card-body text-center text-center">
+                <form action="/donation/payment/custom" method="post">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" style="margin-left: 50px;">$</span>
+                      </div>
+                      <input type="number" name="amount" class="form-control form-control-lg" required placeholder="Enter Amount" style="max-width: 200px; margin: 0 auto;">
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-block btn-outline-success text-center mx-auto" style="border-radius: 30px; max-width: 200px;">Donate</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+            <div class="card h-100 shadow-lg">
+              <div class="card-body">
+                <div class="text-center p-3">
+                  <h5 class="card-title">Bank Details</h5>
+                  <br>
+                  <span class="h2">Donate via Bank Transfer</span>
+                  <br><br>
+                </div>
+                <p class="card-text text-center">Make a donation by transferring funds to the following bank account:</p>
+                <div class="text-center">
+                  <h6>Bank: Example Bank</h6>
+                  <h6>Account Number: 123456789</h6>
+                  <h6>Account Holder: Your Name</h6>
+                  <h6>Routing Number: 987654321</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+  
+
+
+<footer>
+  <%- include('./partials/footer'); %>
+</footer>
+
+</body>
+
+
+</html>

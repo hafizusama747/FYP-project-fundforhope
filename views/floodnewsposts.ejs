@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  <title>Login</title>
+  
+  <%- include('./partials/head'); %>
+
+  <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+  <style>
+    .carda {
+      border:none;
+      padding: 10px 50px;
+    }
+    .carda::after {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+      -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .carda:hover {
+      transform: scale(1.02, 1.02);
+      -webkit-transform: scale(1.02, 1.02);
+      backface-visibility: hidden; 
+      will-change: transform;
+      box-shadow: 0 1rem 3rem rgba(0,0,0,.75) !important;
+    }
+    .carda:hover::after {
+      opacity: 1;
+    }
+    .carda:hover .btn-outline-primary{
+      color:white;
+      background:#007bff;
+    }
+
+    .select {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 40px;
+  background: #f2f2f2;
+  border-radius: 4px;
+  overflow: hidden;
+  border: none;
+}
+
+.select select {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+  border: none;
+  outline: none;
+  appearance: none;
+}
+
+.select select::-ms-expand {
+  display: none;
+}
+
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #555;
+  pointer-events: none;
+}
+
+.select select:focus + .select::after {
+  color: #888;
+}
+
+.select select option {
+  background: #f2f2f2;
+  color: #555;
+}
+
+.select select option:hover {
+  background: #e6e6e6;
+}
+  </style>
+
+<script>
+ window.onload = function() {
+      // Retrieve the select element
+      const select = document.getElementById('exampleSelect');
+
+      // Get the URL parameter value
+      const urlParams = new URLSearchParams(window.location.search);
+      const selectedValue = urlParams.get('selected');
+
+      // Set the selected option based on the URL parameter value
+      if (selectedValue) {
+        select.value = selectedValue;
+      }
+
+      // Add event listener for change event
+      select.addEventListener('change', function() {
+        // Get the selected option value
+        const selectedValue = select.value;
+
+        // Update the URL with the selected option as a parameter
+        const newUrl = new URL(window.location.href);
+        newUrl.searchParams.set('selected', selectedValue);
+        window.history.replaceState(null, null, newUrl);
+
+        // Perform the redirection based on the selected option
+        switch (selectedValue) {
+          case 'flood':
+            window.location.href = '/posts/floodnews/1/Flood post';
+            break;
+          case 'earthquake':
+            window.location.href = '/posts/floodnews/1/Earthquake post';
+            break;
+          case 'information':
+            window.location.href = '/posts/floodnews/1/Information post';
+            break;
+          default:
+            // If no specific option is selected, redirect to a default URL
+            window.location.href = '/posts/floodnews/all/1';
+        }
+      });
+    };
+
+</script>
+  
+  </head>
+<body class="container-fluid">
+
+<header>
+  <%- include('./partials/header'); %>
+  
+</header>
+
+<div class="container-fluid">
+  <!-- Featured posts -->
+  <% posts.forEach(function(post) { %>
+    <% if (post.isFeatured == "true") { %>
+      <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark mt-2" style="background-image:url(/uploads/blogimages/<%=post.image1%>);background-size: cover;background-repeat: no-repeat;width: 100%; overflow: hidden;">
+        <div class="col-md-6 px-0">
+          <h1 class="display-4 font-italic"><%=post.title.substring(0,35) + "..."%></h1>
+          <p class="lead my-3"><%=post.description.substring(0,215) + "..."%></p>
+          <p class="lead mb-0"><a href="/posts/viewnewspost/<%= post._id%>" class="text-white font-weight-bold">Continue reading...</a></p>
+        </div>
+      </div>
+    <% } %>
+  <% }); %>
+
+  <div class="card card-body">
+  <!-- Category select -->
+<div class="mb-3">
+  <select class="form-select" id="exampleSelect">
+    <option selected disabled>Categories</option>
+    <option value="flood" <% if (category === 'flood') { %>selected<% } %>>Flood posts</option>
+    <option value="earthquake" <% if (category === 'earthquake') { %>selected<% } %>>Earthquake posts</option>
+    <option value="information" <% if (category === 'information') { %>selected<% } %>>Information posts</option>
+  </select>
+</div>
+
+
+    <!-- Regular posts -->
+    <% for (var i = 0; i < posts.length; i = i + 2) { %>
+      <div class="row mb-2">
+        <% if (i < posts.length) { %>
+          <div class="col-md-6">
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary"><%= posts[i].date %></strong>
+                <h3 class="mb-0"><%= posts[i].title.substring(0, 55) + "..." %></h3>
+                <span class="mb-1 text-muted"></span>
+                <p class="card-text mb-auto"><%= posts[i].description.substring(0, 172) + "..." %></p>
+                <a href="/posts/viewnewspost/<%= posts[i]._id %>" class="stretched-link">Continue reading</a>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <img class="bd-placeholder-img" width="200" height="250" src="/uploads/blogimages/<%= posts[i].image1 %>" alt="">
+              </div>
+            </div>
+          </div>
+        <% } %>
+
+        <% if (i + 1 < posts.length) { %>
+          <div class="col-md-6">
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary"><%= posts[i + 1].date %></strong>
+                <h3 class="mb-0"><%= posts[i + 1].title.substring(0, 55) + "..." %></h3>
+                <span class="mb-1 text-muted"></span>
+                <p class="card-text mb-auto"><%= posts[i + 1].description.substring(0, 172) + "..." %></p>
+                <a href="/posts/viewnewspost/<%= posts[i + 1]._id %>" class="stretched-link">Continue reading</a>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <img class="bd-placeholder-img" width="200" height="250" src="/uploads/blogimages/<%= posts[i + 1].image1 %>" alt="">
+              </div>
+            </div>
+          </div>
+        <% } %>
+      </div>
+    <% } %>
+
+
+    <% if (posts.length > 0) { %>
+      <!-- Pagination -->
+      <% if (totalPages > 1) { %>
+        <div class="d-flex justify-content-center"> <!-- Centering the pagination -->
+          <nav aria-label="Page navigation">
+            <ul class="pagination">
+              <% if (currentPage > 1) { %>
+                <li class="page-item">
+                  <a class="page-link" href="/posts/floodnews/1/<%= category %>" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+              <% } %>
+    
+              <% for (let i = 1; i <= totalPages; i++) { %>
+                <li class="page-item <% if (currentPage === i) { %>active<% } %>">
+                  <a class="page-link" href="/posts/floodnews/<%= i %>/<%= category %>"><%= i %></a>
+                </li>
+              <% } %>
+    
+              <% if (currentPage < totalPages) { %>
+                <li class="page-item">
+                  <a class="page-link" href="/posts/floodnews/<%= totalPages %>/<%= category %>" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              <% } %>
+            </ul>
+          </nav>
+        </div>
+      <% } %>
+    <% } else { %>
+      <p>No posts found.</p>
+    <% } %>
+    
+    
+    
+  </div>
+</div>
+
+
+
+<footer>
+</footer>
+
+</body>
+</html>

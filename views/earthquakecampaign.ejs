@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<title><%=title%></title>
+<%- include('./partials/head'); %>
+ 
+<style>
+  .customcard {
+    border:none;
+    padding: 10px 50px;
+  }
+  .customcard::after {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  .customcard:hover {
+    transform: scale(1.02, 1.02);
+    -webkit-transform: scale(1.02, 1.02);
+    backface-visibility: hidden; 
+    will-change: transform;
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.75) !important;
+  }
+  .customcard:hover::after {
+    opacity: 1;
+  }
+  .customcard:hover .btn-outline-primary{
+    color:white;
+    background:#007bff;
+  }
+  .full-size-bg {
+    background-image: url('/images/o5.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+  }
+
+  .text-bottom-left {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+
+</style>
+</head>
+<body class="container-fluid">
+
+<header>
+  <%- include('./partials/header'); %>
+
+</header>
+
+
+<main>
+  
+<div class="jumbotron">
+    
+  <section class="full-size-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="text-bottom-left text-light">
+            <h2>EARTHQUAKE IN TURKEY</h2>
+            <p>FAMILIES NEED YOUR SUPPORT</p>
+            <a href="/earthquakedonation" class="btn btn-light">Donate Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+    <div class="card ">
+      <br>
+      <div class="content d-flex align-items-center justify-content-center">
+        
+      </div>
+      <div class="container-fluid ">
+      
+        <div class="card-body">
+          <b   class="content d-flex align-items-center justify-content-center" ><i class="fa fa-clipboard text-danger" aria-hidden="true"><nbsp></nbsp> <b class="fs-5 text-danger">Appeal </b> </i>  </b> 
+          <h1 class="content d-flex align-items-center justify-content-center text-danger" >Devastating Earthquake in TURKEY</h1><h1 class="text-success"></h1>
+          <p class="title content d-flex align-items-center justify-content-center text-dark">We are on the ground working for the needy children and families</p>
+          
+          <div class="actions ">
+            <div class="d-flex justify-content-center">
+              <a href="/flooddonation"> <button type="button" style="border-radius:30px"class="btn  btn-outline-success btn-sm px-3 me-2 fw-semibold" >
+                Donate now
+              </button></a>
+                           
+            </div>
+            <br>
+          </div>  
+        </div>
+        <br>
+      </div>                                  
+    </div>     
+    
+    <div class="card">
+      <div class="card-body">
+        <div class="container marketing">
+
+          <!-- START THE FEATURETTES -->
+      
+          <div class="row featurette">
+            <div class="col-md-7 "style="margin-top:70px;">
+              <h1 class="featurette-heading fw-normal lh-1 text-primary">The impact has been almost unimaginable.</h1>
+              <p class="lead">City blocks have been almost entirely wiped out, the cities of Hatay and Gaziantep in Türkiye are now barely recognisable. With over               <span class="text-danger">85,000 buildings destroyed</span>
+              , rescuers were still pulling bodies out of rubble weeks later. Ongoing water and gas cuts make it hard for people to keep warm as temperatures drop below zero during the night. People sheltering in cars and open spaces are at risk from hypothermia.
+</p>
+            </div>
+            <div class="col-md-5">
+              <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="/images/t1.jpeg" alt="">
+            </div>
+          </div>
+      
+          <hr class="featurette-divider">
+      
+          <div class="row featurette">
+            <div class="col-md-7 order-md-2 "style="margin-top:70px;">
+              <h1 class="featurette-heading fw-normal lh-1 text-primary">
+                Turkey-Earthquake: Emergency Situation Report.</span></h1>
+              <p class="lead">The United Nations has said at least  <span class="text-danger">1.5 million people</span> have been made homeless in southern Turkey, with more than <span class="text-danger">500,000 homes</span> needing to be rebuilt.
+
+                Nearly <span class="text-danger"> 10,000 aftershocks</span> have been reported since February 6, according to AFAD.
+                
+                Last week, Turkey said about <span class="text-danger">865,000 people</span> were living in tents and <span class="text-danger">23,500</span>  were in container homes, while <span class="text-danger">376,000</span> were in student dormitories and public guesthouses outside the earthquake zone.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+              <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="/images/t2.jpeg" alt="">
+            </div>
+          </div>
+      
+          <hr class="featurette-divider">
+      
+          <div class="row featurette">
+            <div class="col-md-7 "style="margin-top:70px;">
+              <h1 class="featurette-heading fw-normal lh-1 text-primary">The most powerful earthquake that hit the Turkey ever</span></h1>
+              <p class="lead">On Feb. 6, a magnitude <span class="text-danger">7.8</span> earthquake occurred in southern Turkey near the northern border of Syria. This quake was followed approximately nine hours later by a magnitude <span class="text-danger">7.5</span> earthquake located around 59 miles (95 kilometers) to the southwest. The first earthquake was the most devastating to hit earthquake-prone Turkey in more than 20 years and was as strong as one in 1939.</p>
+            </div>
+            <div class="col-md-5">
+              <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="/images/t3.jpg" alt="">
+            </div>
+          </div>
+        
+      
+        </div>
+      </div>
+    </div>
+
+
+
+    
+    <div class="card text-center">
+    
+      <div class="card-body ">
+    
+    
+        <div class="card-header text-dark">
+          Earthquake news
+        </div>
+        <div class="row ml-3 mt-4 ">
+
+
+          <% posts.forEach(function(post) { %>
+            <div class="col-lg-3">
+              <div class="col-lg-3 col-sm-12 mt-4 mb-sm-4">
+                <div class="card img-hover-zoom--quick-zoom " style="width: 18rem;">
+                  <img src="/uploads/blogimages/<%=post.image1%>" class="card-img-top " alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title text-dark"><%=post.title.substring(0,55) + "..."%></h5>
+                    <p class="card-text"><%=post.description.substring(0,85) + "..."%></p>
+                    <a href="/posts/viewnewspost/<%= post._id%>"> <button type="button" style="border-radius:30px"class="btn  btn-outline-secondary btn-sm px-3 me-2 fw-semibold" >
+                      Read news
+                    </button></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+         
+           
+          <% }); %>
+          
+          
+          
+ 
+        </div>
+        <br>
+        <a href="/posts/floodnews"> <button type="button" style="border-radius:30px"class="btn btn-secondary btn-sm px-3 me-2 fw-semibold" >
+          Browse more
+        </button></a>
+       
+      </div>
+      <div class="card-footer text-muted">
+        2 days ago
+      </div>
+
+      
+    </div>
+    
+    
+   
+</div>
+
+
+    
+
+ 
+</main>
+
+<footer>
+  <%- include('./partials/footer'); %>
+</footer>
+
+</body>
+
+
+</html>

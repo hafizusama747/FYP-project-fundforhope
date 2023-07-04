@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  <title>Login</title>
+  
+  <%- include('../partials/head'); %>
+  <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+  <style>
+    .carda {
+      border:none;
+      padding: 10px 50px;
+    }
+    .carda::after {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+      -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .carda:hover {
+      transform: scale(1.02, 1.02);
+      -webkit-transform: scale(1.02, 1.02);
+      backface-visibility: hidden; 
+      will-change: transform;
+      box-shadow: 0 1rem 3rem rgba(0,0,0,.75) !important;
+    }
+    .carda:hover::after {
+      opacity: 1;
+    }
+    .carda:hover .btn-outline-primary{
+      color:white;
+      background:#007bff;
+    }
+  </style>
+  
+  </head>
+<body class="container-fluid ">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<form class="" action="/users/login" method="POST">
+  <% if (country === 'Pakistan') { %>
+    <section class="vh-100 jumbotron card border-left-secondary" style=" margin-left: 35px;margin-right: 35px;">
+      <div class="container py-5 h-100 text-left">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5 ">
+            <div class="card carda shadow-2-strong border-top-secondary border-bottom-secondary " style="border-radius: 1rem;">
+              <div class="card-body p-5 text-center ">
+    
+                <h1 class="mb-5">لاگ ان کریں</h1>
+           
+                <div class="form-outline mb-4 text-left">
+                  <label for="email" >ای میل اڈریس</label>
+                  <input type="email"  class="form-control"style="border-radius:30px" placeholder="Email" name="email" required>
+                </div>
+    
+                <div class="form-outline mb-4 text-left">
+                  <label for="password" >پاس ورڈ</label>
+                  <input type="password"  class="form-control"style="border-radius:30px" placeholder="Password" name="password" required>
+                </div>
+    
+                <!-- Checkbox -->
+                <div class="form-check d-flex justify-content-start mb-4">
+                  <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
+                  <label class="form-check-label" for="form1Example3"> پاس ورڈ یاد رکھیں</label>
+                </div>
+    
+                <button class="btn btn-block btn-outline-dark" style="border-radius:30px" type="submit">سائن ان</button>
+                <hr class="my-4">
+    
+             
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+    </section>
+  <% } else { %>
+    <section class="vh-100 jumbotron card border-left-secondary" style=" margin-left: 35px;margin-right: 35px;">
+      <div class="container py-5 h-100 text-left">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5 ">
+            <div class="card carda shadow-2-strong border-top-secondary border-bottom-secondary " style="border-radius: 1rem;">
+              <div class="card-body p-5 text-center ">
+    
+                <h1 class="mb-5">Login</h1>
+           
+                <div class="form-outline mb-4 text-left">
+                  <label for="email" >Email Address</label>
+                  <input type="email"  class="form-control"style="border-radius:30px" placeholder="Email" name="email" required>
+                </div>
+    
+                <div class="form-outline mb-4 text-left">
+                  <label for="password" >Password</label>
+                  <input type="password"  class="form-control"style="border-radius:30px" placeholder="Password" name="password" required>
+                </div>
+    
+                <!-- Checkbox -->
+                <div class="form-check d-flex justify-content-start mb-4">
+                  <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
+                  <label class="form-check-label" for="form1Example3"> Remember password </label>
+                </div>
+    
+                <button class="btn btn-block btn-outline-dark" style="border-radius:30px" type="submit">Sign in</button>
+                <hr class="my-4">
+    
+             
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+    </section>
+  <% } %>
+
+</form>
+
+
+<footer>
+</footer>
+
+</body>
+</html>

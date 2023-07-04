@@ -1,0 +1,43 @@
+<% if (user) { %>
+  <nav  class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="position: sticky;">
+    <div class="container ">
+  
+      <a class="navbar-brand" href="/users/admin/dashboard">      <img src="/images/homel.jpg" height="45" width="70" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/users/admin/dashboard"> Dashboard</a>
+          </li>
+          
+           
+        </ul>
+        <div class="d-flex align-items-center">
+
+          
+
+          <div class="dropdown text-center text-secondary">
+            <a width="32" height="32" class="rounded-circle me-2" href="/users/profile"> <img src="/uploads/images/<%=user.profileImg%>" height="45" width="45" style="border-radius: 50%"   alt=""></a>  
+
+            <a href="#" class="float-right mt-4 d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+
+              
+            </a>
+            <ul class="dropdown-menu text-small shadow text-secondary">
+              <li><a class="dropdown-item " href="/users/profile">Settings</a></li>
+              <li><a class="dropdown-item" href="/users/profile">Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/users/logout">Sign out</a></li>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+<%} else { %>
+
+<% } %> 

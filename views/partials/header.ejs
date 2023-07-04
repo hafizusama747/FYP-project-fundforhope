@@ -1,0 +1,91 @@
+<% if (user) { %>
+  <nav  class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="position: sticky;">
+    <div class="container ">
+  
+      <a class="navbar-brand" href="http://localhost:3000">      <img src="/images/homel.jpg" height="45" width="70" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/users/donationprofile"> My Posts</a>
+          </li>   
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:3000/floodguide"> Guide-blog</a>
+          </li>   
+          <li class="nav-item">
+            <a class="nav-link" href="/posts/floodnews"> Flood News</a>
+          </li>    
+          <li class="nav-item">
+            <a class="nav-link" href="/donationposts/createDonationPost"> Post a new story</a>
+          </li>   
+           
+        </ul>
+        <div class="d-flex align-items-center">
+
+          
+          <div class="dropdown text-center">
+            <a width="32" height="32" class="rounded-circle me-2" href="/users/profile"> <img src="/uploads/images/<%=user.profileImg%>" height="45" width="45" style="border-radius: 50%"   alt=""></a>  
+
+            <a href="#" class="float-right mt-4 d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+
+              
+            </a>
+            <ul class="dropdown-menu text-small shadow">
+              <li><a class="dropdown-item" href="/users/profile">Settings</a></li>
+              <li><a class="dropdown-item" href="/users/profile">Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/users/logout">Sign out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+<%} else { %>
+  <nav  class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="position: sticky;">
+    <div class="container ">
+  
+      <a class="navbar-brand" href="http://localhost:3000">      <img src="/images/homel.jpg" height="45" width="70" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Campaigns
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/floodcampaign">Flood Campaign</a></li>
+              <li><a class="dropdown-item" href="/earthquakecampaign">Earthquake campaign</a></li>
+            </ul>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/donationposts"> Victims stories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/posts/floodnews/1/all"> News blog</a>
+          </li>    
+    
+          <li class="nav-item d-flex align-items-center">
+            <a href="/donation"> <button type="button" style="border-radius:30px"class="btn  btn-outline-success btn-sm px-3 me-2 fw-semibold " >
+              Donate
+            </button></a>
+          </li>      
+        </ul>
+        <div class="d-flex align-items-center">
+          <a href="/users/login"> <button type="button" style="border-radius:30px"class="btn  btn-outline-dark btn-sm px-3 me-2 fw-semibold" >
+            Login
+          </button></a>
+         
+          
+          <a href="/users/signup"><button class="btn btn-dark btn-sm px-3 me-2 fw-semibold "style="border-radius:30px" type="button">Signup</button></a>
+        </div>
+      
+      </div>
+    </div>
+  </nav>
+<% } %> 
